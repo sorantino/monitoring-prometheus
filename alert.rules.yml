@@ -1,0 +1,11 @@
+groups:
+  - name: app_alerts
+    rules:
+      - alert: ChatPhpDown
+        expr: up{job="chatphp"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Chat PHP down"
+          description: "Le site chat PHP ne répond plus."
