@@ -5,7 +5,13 @@ rule_files:
   - /etc/prometheus/alert.rules.yml
 
 scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - localhost:9090
+
   - job_name: chatphp
+    metrics_path: /
     static_configs:
       - targets:
           - chatphp.erwintimo.courses.studalya.net
